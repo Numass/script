@@ -1021,7 +1021,7 @@ TB.Text = 'Minimum ping dono amount: ' .. getgenv().settings.pingAboveDono
 
 webhookTab:AddButton("Test Webhook", function()
 	if getgenv().settings.webhookBox:gsub(" ","") ~= "" then
-		oldWebhook("Webhook works!")
+		oldWebhook("Webhook works! you still bad")
 	end
 end)
 
