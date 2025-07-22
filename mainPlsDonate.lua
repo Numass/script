@@ -8,7 +8,6 @@ if game.PlaceId ~= 8737602449 and game.PlaceId ~= 8943844393 then
 end
 
 loadstring(game:HttpGet("https://raw.githubusercontent.com/Numass/script/refs/heads/main/editsettings.lua"))
-wait(1)
 
 local identifyexecutor = identifyexecutor or function() return 'Unknown' end
 local cloneref = (identifyexecutor() ~= "Synapse Z" and not identifyexecutor():find("Codex") and cloneref) or function(o) return o end -- infinite yield
