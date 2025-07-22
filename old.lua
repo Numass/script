@@ -1,9 +1,3 @@
---[[
-	This property is protected.
-	You are not allowed to claim this as your own.
-	Removal of initial credits to the authors is prohibited.
-]]
-
 repeat
 	task.wait()
 until game:IsLoaded()
@@ -140,12 +134,12 @@ local queueonteleport = (syn and syn.queue_on_teleport) or queue_on_teleport or 
 local httprequest = (syn and syn.request) or http and http.request or http_request or (fluxus and fluxus.request) or request
 local httpservice = HttpService
 if queueonteleport then
-	queueonteleport("loadstring(game:HttpGet('https://raw.githubusercontent.com/CF-Trail/tzechco-PlsDonateAutofarmBackup/main/old.lua'))()")
+	queueonteleport("loadstring(game:HttpGet('https://raw.githubusercontent.com/Numass/script/refs/heads/main/old.lua'))()")
 end
-local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/CF-Trail/tzechco-PlsDonateAutofarmBackup/main/UI"))()
+local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/Numass/script/refs/heads/main/UI"))()
 local _HIGHLIGHTLOADER
 pcall(function()
-     _HIGHLIGHTLOADER = loadstring(game:HttpGet('https://raw.githubusercontent.com/CF-Trail/tzechco-PlsDonateAutofarmBackup/main/hl.lib.lua'))()
+     _HIGHLIGHTLOADER = loadstring(game:HttpGet('https://raw.githubusercontent.com/Numass/script/refs/heads/main/hl.lib.lua'))()
 end)
 function forceServerHop()
 	--local isVip = game:GetService('RobloxReplicatedStorage').GetServerType:InvokeServer()
@@ -753,7 +747,7 @@ local easterlol = {
 
 local easterclr = easterlol[math.random(1,#easterlol)]
 
-local Window = library:AddWindow("@szze (gay gay homosexual gay) .gg/yrQbdfhuqd",
+local Window = library:AddWindow("Ouranos PLS Donate [NumainStoler]",
   {
 	main_color = easterclr,
 	min_size = Vector2.new(560, 563),
@@ -1461,9 +1455,9 @@ otherTab2:AddButton("Save Replies", function()
 	saveSettings()
 end)
 
-supportTab:AddLabel("Hello. This script is free but I won't resist")
-supportTab:AddLabel("from some robux :3")
-supportTab:AddLabel("If you want to donate me, click here: ")
+supportTab:AddLabel("Hello. This script is stolen by Numass")
+supportTab:AddLabel("Designed for Ouranos30")
+supportTab:AddLabel("Go donate the initial owner or we will kiss you")
 supportTab:AddButton('Teleport', function()
 	TPService:Teleport(13461969417)
 end)
@@ -1793,9 +1787,10 @@ end)
 
 if getgenv().settings.webhookAfterSH then
 	if Players.LocalPlayer.DisplayName ~= Players.LocalPlayer.Name then
-		oldWebhook(Players.LocalPlayer.DisplayName .. ' (@' .. Players.LocalPlayer.Name .. ') serverhopped')
+		oldWebhook(Players.LocalPlayer.DisplayName .. '-# [OuranosXNuma] - ' .. Players.LocalPlayer.Name .. ') Joined a new server [OuranosXNuma]')
 	else
-		oldWebhook('@' .. Players.LocalPlayer.Name .. ' serverhopped')
+		oldWebhook('-# [OuranosXNuma] - ' .. Players.LocalPlayer.Name .. ' joined a new server')
+
 	end
 end
 
