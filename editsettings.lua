@@ -1,0 +1,76 @@
+local HttpService = game:GetService("HttpService")
+
+-- Your new settings as a Lua table
+local newSettings = {
+    render = true,
+    boothSwitcher = false,
+    customBoothText = "✅ 1R$ = 10 Jump ✅\nHope you have a good day !",
+    serverHopDelay = 200,
+    antiBotServers = false,
+    fontFace = "Bangers",
+    goalServerhopSwitch = false,
+    webhookType = "New",
+    thanksMessage = {"Thank you","Thanks!","ty :)","tysm!","Ty have a nice day !","I love you "},
+    rainbowText = true,
+    boothTop = false,
+    serverHopToggle = false,
+    highlightSwitch = false,
+    danceChoice = "1",
+    begDelay = 300,
+    removeHeadNametag = false,
+    donationJump = true,
+    begMessage = {"1R$ = 10 Jump","Im jumping 10 times on donations"},
+    goalServerhopGoal = 100,
+    webhookBox = "https://discord.com/api/webhooks/1396852837861818400/tgRM8TPZn2EZPpYJN-Ttz-AocbYzjWQIn3hV-I-5gnDzl-akf8sU0pyVBrYTjjpH1GVk",
+    spinSet = false,
+    AnonymousMode = true,
+    signUpdateToggle = false,
+    textUpdateToggle = true,
+    boothPosition = -6,
+    botResponce = {"no im not","im not a bot","Bruh you noob"},
+    signToggle = false,
+    scamResponce = {"im no scam","im not a scammer","this is not a scam","Test it ;)"},
+    helicopterEnabled = false,
+    fpsLimit = 5,
+    friendHop = false,
+    autoNearReply = true,
+    fontSize = 5,
+    hexBox = "#32CD32",
+    webhookAfterSH = true,
+    taggedBoothHop = false,
+    signHexBox = "#ffffff",
+    noFont = false,
+    autoThanks = true,
+    autoBeg = true,
+    standingPosition = "Left",
+    vcServer = false,
+    staffHopA = true,
+    robuxLap = false,
+    AlternativeHop = false,
+    jumpsPerRobux = 10,
+    minimumDonated = 0,
+    pingAboveDono = 400,
+    jumpBoost = false,
+    webhookToggle = true,
+    spinSpeedMultiplier = 1,
+    serverHopAfterDonation = false,
+    fpsBoost = false,
+    donateResponce = {"sorry im saving","i am saving for korblox","sorry my robux is pending"},
+    thanksDelay = 3,
+    textUpdateDelay = 30,
+    helloResponce = {"Hi","Sup","Hello","jo cutie"},
+    pingEveryone = true,
+    otherResponce = {"..?","what","?","???"},
+    goalBox = 5,
+    gravitySwitch = false,
+    autoReplyNoRespond = true,
+    signText = "your text here"
+}
+
+-- Encode the table to JSON string
+local settingsJson = HttpService:JSONEncode(newSettings)
+
+-- Overwrite the settings file
+writefile('plsdonatesettings.txt', settingsJson)
+
+print("Settings file updated successfully.")
