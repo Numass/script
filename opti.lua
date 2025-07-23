@@ -1,3 +1,5 @@
+wait(10)
+
 -- Utility function to safely destroy instances
 local function safeDestroy(obj)
     if obj and typeof(obj) == "Instance" and obj:IsA("Instance") and obj.Destroy then
