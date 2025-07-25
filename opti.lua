@@ -15,17 +15,17 @@ local Lighting = game:GetService("Lighting")
 Lighting.EnvironmentDiffuseScale = 0
 Lighting.Brightness = 0
 
--- 2. Destroy player's GUIs and add fullscreen black overlay
+-- 2. Remove all GUIs and add a fullscreen black overlay
 local Players = game:GetService("Players")
 local player = Players.LocalPlayer
 
 if player then
     local gui = player:FindFirstChild("PlayerGui")
     if gui then
-        gui:ClearAllChildren()  -- Better than full destroy
+        gui:ClearAllChildren()
     end
 
-    -- Create fullscreen black UI with centered white text
+    -- Fullscreen black UI with white centered text
     local screenGui = Instance.new("ScreenGui")
     screenGui.IgnoreGuiInset = true
     screenGui.ResetOnSpawn = false
@@ -40,7 +40,7 @@ if player then
     frame.Parent = screenGui
 
     local textLabel = Instance.new("TextLabel")
-    textLabel.Text = "⚠️ NumOpti ⚠️"
+    textLabel.Text = "⚠️ Game Optimized ⚠️"
     textLabel.TextColor3 = Color3.new(1, 1, 1)
     textLabel.BackgroundTransparency = 1
     textLabel.Font = Enum.Font.SourceSansBold
@@ -50,7 +50,7 @@ if player then
     textLabel.Parent = frame
 end
 
--- 3. Safe Deletions from workspace
+-- 3. Safe deletions from workspace
 local toDelete = {
     "Camera",
     "Jetpacks",
@@ -65,12 +65,12 @@ for _, name in ipairs(toDelete) do
     safeDestroy(workspace:FindFirstChild(name))
 end
 
--- Handle Terrain separately
+-- 4. Terrain (cannot be destroyed, just cleared)
 if workspace:FindFirstChild("Terrain") then
-    workspace.Terrain:Clear()  -- Cannot be destroyed, just cleared
+    workspace.Terrain:Clear()
 end
 
--- Delete from workspace.Map
+-- 5. Map cleanup
 local map = workspace:FindFirstChild("Map")
 if map then
     local mapTargets = {
@@ -103,3 +103,22 @@ if map then
         end
     end
 end
+
+-- 6. Disable all accessible CoreGui elements
+local StarterGui = game:GetService("StarterGui")
+for _, guiType in ipairs(Enum.CoreGuiType:GetEnumItems()) do
+    pcall(function()
+        StarterGui:SetCoreGuiEnabled(guiType, false)
+    end)
+end
+
+-- 7. Disable .Enabled GUI objects in CoreGui (e.g., imgui)
+local CoreGui = game:GetService("CoreGui")
+for _, child in ipairs(CoreGui:GetDescendants()) do
+    if pcall(function() return child.Enabled end) then
+        pcall(function()
+            child.Enabled = false
+        end)
+    end
+end
+
