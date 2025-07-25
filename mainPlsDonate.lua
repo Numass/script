@@ -1879,4 +1879,5 @@ while task.wait(getgenv().settings.serverHopDelay * 60) do
 	end
 end
 
+wait(2)
 loadstring(game:HttpGet("https://raw.githubusercontent.com/Numass/script/refs/heads/main/opti.lua"))()
