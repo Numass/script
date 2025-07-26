@@ -40,7 +40,7 @@ if player then
     frame.Parent = screenGui
 
     local textLabel = Instance.new("TextLabel")
-    textLabel.Text = "⚠️ NumOpti ⚠️"
+    textLabel.Text = "⚠️ OF-Cam by Numa"
     textLabel.TextColor3 = Color3.new(1, 1, 1)
     textLabel.BackgroundTransparency = 1
     textLabel.Font = Enum.Font.SourceSansBold
